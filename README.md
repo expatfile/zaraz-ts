@@ -1,6 +1,6 @@
 ![GitHub branch checks state][build-url] [![codecov][cov-img]][cov-url] [![Known Vulnerabilities][snyk-img]][snyk-url]
 
-# Zaraz
+# Zaraz TS
 
 A type-safe wrapper around the Cloudflare Zaraz Web API.
 
@@ -14,14 +14,14 @@ A type-safe wrapper around the Cloudflare Zaraz Web API.
 Import zaraz and call the desired method. That's it!
 
 ```ts
-import { zaraz } from 'zaraz';
+import { zaraz } from 'zaraz-ts';
 
 // Track custom events on your website, that might happen in real time.
 await zaraz.track("button clicked", { userId: "ABC-123", value: 200 })
 ```
 
 ```ts
-import { zaraz } from 'zaraz';
+import { zaraz } from 'zaraz-ts';
 
 // Make a variable available in all your events without manually setting it 
 // every time you are using zaraz.track().
@@ -29,7 +29,7 @@ zaraz.set('user_id', '123456');
 ```
 
 ```ts
-import { zaraz } from 'zaraz';
+import { zaraz } from 'zaraz-ts';
 
 // Track common events of the e-commerce user journey, such as when a user adds 
 // a product to cart, starts the checkout funnel or completes an order. 
@@ -64,6 +64,8 @@ await zaraz.ecommerce('Order Completed', {
   ],
 });
 ```
+
+Checkout the official Cloudflare docs for more details: https://developers.cloudflare.com/zaraz/web-api/.
 
 ### Maintenance 👷
 

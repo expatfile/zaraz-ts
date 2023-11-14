@@ -1,7 +1,7 @@
 {
-  "name": "zaraz",
+  "name": "zaraz-ts",
   "version": "0.0.0-development",
-  "description": "Zaraz - A type-safe wrapper around the Cloudflare Zaraz Web API.",
+  "description": "Zaraz TS - A type-safe wrapper around the Cloudflare Zaraz Web API.",
   "main": "build/index.js",
   "scripts": {
     "lint": "eslint ./src",
@@ -15,7 +15,9 @@
     "semantic-release": "semantic-release"
   },
   "keywords": [
+    "zaraz-ts",
     "zaraz",
+    "type-safe",
     "cloudflare",
     "typescript"
   ],
@@ -23,12 +25,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/expatfile/zaraz.git"
+    "url": "https://github.com/expatfile/zaraz-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/expatfile/zaraz/issues"
+    "url": "https://github.com/expatfile/zaraz-ts/issues"
   },
-  "homepage": "https://github.com/expatfile/zaraz#readme",
+  "homepage": "https://github.com/expatfile/zaraz-ts#readme",
   "dependencies": {},
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
