@@ -3,7 +3,7 @@
  * an error. Else returns the zaraz object.
  */
 export function getZaraz() {
-  if (!window?.zaraz) {
+  if (typeof window !== 'undefined' && !window?.zaraz) {
     throw new Error(
       `Cannot use Zaraz Web API, because window.zaraz is not defined.`,
     );

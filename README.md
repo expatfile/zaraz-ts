@@ -73,9 +73,9 @@ This package is maintained and actively used by [Expatfile.tax][expatfile-site].
 The #1 US expat tax e-filing software. 🇺🇸
 
 
-[build-url]: https://img.shields.io/github/checks-status/expatfile/zaraz/main
-[cov-img]: https://codecov.io/gh/expatfile/zaraz/branch/main/graph/badge.svg?token=mbGgsweFuP
-[cov-url]: https://codecov.io/gh/expatfile/zaraz
-[snyk-img]: https://snyk.io/test/github/expatfile/zaraz/badge.svg
-[snyk-url]: https://snyk.io/test/github/expatfile/zaraz
+[build-url]: https://img.shields.io/github/checks-status/expatfile/zaraz-ts/main
+[cov-img]: https://codecov.io/gh/expatfile/zaraz-ts/branch/main/graph/badge.svg?token=mbGgsweFuP
+[cov-url]: https://codecov.io/gh/expatfile/zaraz-ts
+[snyk-img]: https://snyk.io/test/github/expatfile/zaraz-ts/badge.svg
+[snyk-url]: https://snyk.io/test/github/expatfile/zaraz-ts
 [expatfile-site]: https://expatfile.tax
