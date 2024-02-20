@@ -1,5 +1,5 @@
 type QueueItem = {
-  method: 'track' | 'set' | 'ecommerce';
+  method: 'track' | 'set' | 'ecommerce' | 'spaPageview';
   arguments: unknown;
 };
 
@@ -28,6 +28,9 @@ export function getZaraz() {
       },
       ecommerce: (...args: unknown[]) => {
         queue.push({ method: 'ecommerce', arguments: args });
+      },
+      spaPageview: (...args: unknown[]) => {
+        queue.push({ method: 'spaPageview', arguments: args });
       },
     };
   }
