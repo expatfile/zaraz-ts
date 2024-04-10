@@ -1,30 +1,16 @@
+import { getZaraz } from '../helpers/get-zaraz';
 import { setAllCheckboxes } from './set-all-checkboxes';
 
-declare global {
-  interface Window {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    zaraz: any;
-  }
-}
-
-let windowObj: Window & typeof globalThis;
-
-beforeAll(() => {
-  windowObj = window;
-});
-
-afterAll(() => {
-  window = windowObj;
-});
+jest.mock('../helpers/get-zaraz');
 
 describe('setAllCheckboxes()', () => {
   it('should call setAllCheckboxes method on zaraz consent with the correct argument', () => {
     const setAllCheckboxesMock = jest.fn();
-    window.zaraz = {
+    (getZaraz as jest.Mock).mockReturnValue({
       consent: {
         setAllCheckboxes: setAllCheckboxesMock,
       },
-    };
+    });
 
     setAllCheckboxes(true);
 
