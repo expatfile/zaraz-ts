@@ -1,5 +1,6 @@
 /* istanbul ignore file */
 
+import { consent } from './consent';
 import { ecommerce } from './ecommerce';
 import { set } from './set';
 import { track } from './track';
@@ -15,9 +16,11 @@ export const zaraz = {
   track,
   set,
   ecommerce,
+  consent,
 };
 
 // Export typing etc.
+export * from './consent';
 export * from './ecommerce';
 export * from './set';
 export * from './track';
