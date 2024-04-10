@@ -6,6 +6,7 @@ A type-safe wrapper around the Cloudflare Zaraz Web API.
 
 - Basic types for `zaraz.track()`;
 - Basic types for `zaraz.set()`;
+- Basic types for `zaraz.consent()`;
 - Extensive types for `zaraz.ecommerce()`;
 - Cheks for `zaraz` being available in the window.
 
@@ -17,13 +18,13 @@ Import zaraz and call the desired method. That's it!
 import { zaraz } from 'zaraz-ts';
 
 // Track custom events on your website, that might happen in real time.
-await zaraz.track("button clicked", { userId: "ABC-123", value: 200 })
+await zaraz.track('button clicked', { userId: 'ABC-123', value: 200 });
 ```
 
 ```ts
 import { zaraz } from 'zaraz-ts';
 
-// Make a variable available in all your events without manually setting it 
+// Make a variable available in all your events without manually setting it
 // every time you are using zaraz.track().
 zaraz.set('user_id', '123456');
 ```
@@ -31,8 +32,8 @@ zaraz.set('user_id', '123456');
 ```ts
 import { zaraz } from 'zaraz-ts';
 
-// Track common events of the e-commerce user journey, such as when a user adds 
-// a product to cart, starts the checkout funnel or completes an order. 
+// Track common events of the e-commerce user journey, such as when a user adds
+// a product to cart, starts the checkout funnel or completes an order.
 await zaraz.ecommerce('Order Completed', {
   checkout_id: '616727740',
   order_id: '817286897056801',
@@ -71,7 +72,6 @@ Checkout the official Cloudflare docs for more details: https://developers.cloud
 
 This package is maintained and actively used by [Expatfile.tax][expatfile-site].
 The #1 US expat tax e-filing software. 🇺🇸
-
 
 [build-url]: https://img.shields.io/github/checks-status/expatfile/zaraz-ts/main
 [cov-img]: https://codecov.io/gh/expatfile/zaraz-ts/branch/main/graph/badge.svg?token=mbGgsweFuP
