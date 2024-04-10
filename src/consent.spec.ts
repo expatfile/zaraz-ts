@@ -1,7 +1,5 @@
 import { setConsent } from './consent';
 
-const setConsentMock = jest.fn();
-
 declare global {
   interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -20,13 +18,14 @@ afterAll(() => {
 });
 
 describe('setConsent()', () => {
-  it('should call zaraz consent when called', () => {
+  it('should set zaraz consent when called', () => {
+    const consentMock: { [key: string]: boolean } = {};
     window.zaraz = {
-      consent: setConsentMock,
+      consent: consentMock,
     };
 
     setConsent('key', true);
 
-    expect(setConsentMock).toHaveBeenCalledWith('key', true);
+    expect(consentMock.key).toBe(true);
   });
 });
