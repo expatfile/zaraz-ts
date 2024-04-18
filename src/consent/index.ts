@@ -1,6 +1,7 @@
 import { get } from './get';
 import { getAll } from './get-all';
 import { getAllCheckboxes } from './get-all-checkboxes';
+import { getAPIReady } from './get-api-ready';
 import { getPurposes } from './get-purposes';
 import { sendQueuedEvents } from './send-queued-events';
 import { set } from './set';
@@ -14,6 +15,7 @@ export const consent = {
   getAll,
   setAll,
   getPurposes,
+  getAPIReady,
   getAllCheckboxes,
   setCheckboxes,
   setAllCheckboxes,

@@ -6,5 +6,5 @@ import { getZaraz } from '../helpers/get-zaraz';
 export function setCheckboxes(checkboxesStatus: {
   [key: string]: boolean;
 }): void {
-  getZaraz().consent.setCheckboxes(checkboxesStatus);
+  getZaraz({ skipQueue: true })?.consent?.setCheckboxes(checkboxesStatus);
 }

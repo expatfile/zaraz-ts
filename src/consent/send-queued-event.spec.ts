@@ -9,17 +9,28 @@ declare global {
 
 let windowObj: Window & typeof globalThis;
 
+const warnSpy = jest.spyOn(console, 'warn');
+
 beforeAll(() => {
   windowObj = window;
+  warnSpy.mockImplementation();
 });
 
 afterAll(() => {
   window = windowObj;
+  warnSpy.mockRestore();
 });
 
 describe('sendQueuedEvents()', () => {
-  it('should call sendQueuedEvents method on zaraz consent', () => {
+  it("should not break when the Zaraz consent API hasn't been initialised", () => {
     const sendQueuedEventsMock = jest.fn();
+    sendQueuedEvents();
+    expect(sendQueuedEventsMock).toHaveBeenCalledTimes(0);
+  });
+
+  it('should call sendQueuedEventsMock when the Zaraz consent API has been initialised', () => {
+    const sendQueuedEventsMock = jest.fn();
+
     window.zaraz = {
       consent: {
         sendQueuedEvents: sendQueuedEventsMock,

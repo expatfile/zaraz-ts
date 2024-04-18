@@ -9,17 +9,27 @@ declare global {
 
 let windowObj: Window & typeof globalThis;
 
+const warnSpy = jest.spyOn(console, 'warn');
+
 beforeAll(() => {
   windowObj = window;
+  warnSpy.mockImplementation();
 });
 
 afterAll(() => {
   window = windowObj;
+  warnSpy.mockRestore();
 });
 
 describe('setAll()', () => {
-  it('should call setAll method on zaraz consent with the correct argument', () => {
+  it("should not break when the Zaraz consent API hasn't been initialised", () => {
+    const result = setAll(true);
+    expect(result).toEqual(undefined);
+  });
+
+  it('should call setAll method on the Zaraz consent API with the correct argument', () => {
     const setAllMock = jest.fn();
+
     window.zaraz = {
       consent: {
         setAll: setAllMock,

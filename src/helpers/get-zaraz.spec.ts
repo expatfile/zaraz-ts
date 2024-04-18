@@ -14,11 +14,13 @@ declare global {
 let windowObj: Window & typeof globalThis;
 
 const logSpy = jest.spyOn(console, 'log');
+const warnSpy = jest.spyOn(console, 'warn');
 
 beforeAll(() => {
   windowObj = window;
 
   logSpy.mockImplementation();
+  warnSpy.mockImplementation();
 });
 
 afterAll(() => {
@@ -27,9 +29,17 @@ afterAll(() => {
   });
 
   logSpy.mockRestore();
+  warnSpy.mockRestore();
 });
 
 describe('getZaraz()', () => {
+  it("should return undefined when skipQueue is true and zaraz doesn't exist on the window", () => {
+    expect(getZaraz({ skipQueue: true })).toEqual(undefined);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `[zaraz-ts] Zaraz Web API hasn't been initialized.`,
+    );
+  });
+
   it('should return zaraz when it exists on the window', () => {
     window.zaraz = {
       track: trackMock,
