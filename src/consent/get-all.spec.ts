@@ -9,17 +9,31 @@ declare global {
 
 let windowObj: Window & typeof globalThis;
 
+const warnSpy = jest.spyOn(console, 'warn');
+
 beforeAll(() => {
   windowObj = window;
+  warnSpy.mockImplementation();
 });
 
 afterAll(() => {
   window = windowObj;
+  warnSpy.mockRestore();
 });
 
 describe('getAll()', () => {
-  it('should return all consents from zaraz consent', () => {
-    const consentsMock = { key1: true, key2: false };
+  it("should return an empty object when the Zaraz consent API hasn't been initialised", () => {
+    const consents = getAll();
+    expect(consents).toEqual({});
+  });
+
+  it('should return an object of consents when the Zaraz consent API has been initialised', () => {
+    const consentsMock = {
+      key1: true,
+      key2: false,
+      key3: undefined,
+    };
+
     window.zaraz = {
       consent: {
         getAll: jest.fn().mockReturnValue(consentsMock),

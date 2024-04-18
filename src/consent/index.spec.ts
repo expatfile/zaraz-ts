@@ -9,6 +9,7 @@ describe('consent', () => {
       setAll: expect.any(Function),
       getAllCheckboxes: expect.any(Function),
       getPurposes: expect.any(Function),
+      getAPIReady: expect.any(Function),
       setCheckboxes: expect.any(Function),
       setAllCheckboxes: expect.any(Function),
       sendQueuedEvents: expect.any(Function),

@@ -1,7 +1,7 @@
 import { getZaraz } from '../helpers/get-zaraz';
 
 /**
- * Get the current consent status for a purpose using the purpose ID.
+ * Get the consent status for a specific purpose using the purpose ID.
  *
  * ```
  * true: The consent was granted.
@@ -10,5 +10,5 @@ import { getZaraz } from '../helpers/get-zaraz';
  * ```
  */
 export function get(purposeId: string): boolean | undefined {
-  return getZaraz().consent.get(purposeId);
+  return getZaraz({ skipQueue: true })?.consent?.get(purposeId) || undefined;
 }
